@@ -15,6 +15,30 @@ export const PurchaseContentWrapper = styled.div`
   max-width: 1000px;
   width: 100%;
 `;
+
+export const LoadingWrapper = styled.div`
+  padding-left: 16px;
+`
+
 export const PurchaseContentHeader = styled.h1`
   color: #16145a;
+  padding-left: 16px;
+`;
+
+export const TableWrapper = styled.div`
+  display: block; 
+  padding: 0 16px;
+  @media(max-width: 768px) {
+    display: none;
+    padding: 0;
+  }
+`;
+
+export const CardWrapper = styled.div`
+  display: none;
+  padding: 0;
+  @media(max-width: 768px) {
+    display: block;
+    padding: 0 16px;
+  }
 `;

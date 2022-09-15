@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { PurchasesMainWrapper, PurchaseContentWrapper, PurchaseContentHeader } from './purchasesStyledComponents';
+import { PurchasesMainWrapper, CardWrapper, PurchaseContentWrapper, PurchaseContentHeader, TableWrapper, LoadingWrapper } from './purchasesStyledComponents';
 import { 
-  PurchasesConstants as constants,
+  PurchasesConstants as constants, purchasesHeaders,
 } from '../assets/constants/purchasesConstants';
 import Table from '../components/table';
+import Cards from '../components/cards';
 
 const Purchases = () => {
   const [purchases, setPurchases] = useState([]);
+
   useEffect(() => {
     fetch('https://idme-interview.herokuapp.com/')
       .then((res) => {
@@ -25,9 +27,21 @@ const Purchases = () => {
         <PurchaseContentHeader>
           {constants['purchases.content.header']}
         </PurchaseContentHeader>
-        {purchases && (
-          <Table data={purchases}/>
-        )}
+        {purchases.length > 0 ? (
+          <>
+            <TableWrapper>
+              <Table data={purchases} headers={purchasesHeaders}/>
+            </TableWrapper>
+            <CardWrapper>
+              <Cards data={purchases}/>
+            </CardWrapper>
+          </>
+        ) :( 
+            <LoadingWrapper>
+              Loading...
+            </LoadingWrapper>
+          )
+          }
       </PurchaseContentWrapper>
     </PurchasesMainWrapper>
   )

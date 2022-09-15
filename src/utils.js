@@ -21,5 +21,31 @@ export const priceConvertion = (price) => {
 export const decodingHtml = (html) => {
   const tempText = document.createElement('textarea');
   tempText.innerHTML = html
-  return tempText.value
+  const capitalize = tempText.value.charAt(0).toUpperCase() + tempText.value.slice(1);
+  return capitalize
+}
+
+export const capitalizingText = (text) => {
+  const capitalize = text.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ")
+  return capitalize
+}
+
+export const categoryColors = {
+  'Food': '#edbb6e',
+  'Technology': '#cdced9',
+  "Footwear": '#98d4a9',
+  "Travel": '#ed6ee0',
+  "Entertainment": '#89a7e0',
+  "Automotive": '#ed7b6e',
+  "Apparel": '#6ee0ed',
+}
+
+export const categoryTextColors = {
+  'Food': '#a5824d',
+  'Technology': '#727279',
+  "Footwear": '#6a9476',
+  "Travel": '#a54d9c',
+  "Entertainment": '#5f749c',
+  "Automotive": '#a5564d',
+  "Apparel": '#4d9ca5',
 }

@@ -1,7 +1,10 @@
 
 export const PurchasesConstants = {
   'purchases.content.header': 'Purchases',
+  'purchases.content.card.purchase.date': 'Purchase Date'
 }
+
+export const purchasesHeaders = ['Name', 'Location', 'Purchase Date', 'Category', 'Description', 'Price']
 
 export const months = {
   1: 'Janurary',
